@@ -69,6 +69,21 @@
             padding: 0 30px 0 30px;
         }
     }
+    .footer{
+        &__info{
+            width: 400px;
+            height: 200px;
+            padding: 30px 38px 0 38px
+        }
+        &__address{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        &__phone{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+    }
 }
     
 
@@ -120,7 +135,7 @@
     }
     .consult{
         min-height: 630px;
-        padding: 60px 0 0 0px;
+        padding: 60px 0 60px 0px;
         .title_white{
             text-align: center;
             font-size: 24px;
@@ -161,8 +176,31 @@
         }
         &__descr{
             text-align: center;
+        } 
+    }
+    .footer{
+        &__info{
+            width: 350px;
+            height: 150px;
+            padding: 20px 28px 0 28px;
         }
-        
+        &__address{
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        &__phone{
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        &__social{
+            &-item{
+                width: 40px;
+                height: 40px;
+                img{
+                    height: 20px;
+                }
+            }
+        }
     }
 }
 
@@ -203,7 +241,7 @@
             }
             
     .consult{
-        padding: 60px 10px 0 10px;
+        padding: 60px 10px 60px 10px;
         .title_white{
             font-size: 18px;
         }
@@ -258,6 +296,34 @@
             padding-right: 0;
         }
     }
+    .footer{
+        &__info{
+            width: 300px;
+            height: 150px;
+            padding: 20px 18px 0 18px;
+        }
+    }
+    .modal{
+        width: 250px;
+        min-height: 355px;
+        padding: 38px 20px 40px 20px;
+        &__close{
+            right: -28px;
+        }
+    .feed-form{
+        width: 100%;
+        input{
+            height: 40px;
+        }
+        button{
+            height: 40px;
+            font-size: 14px;
+        }
+    }
+
+    }
+    
+    
 }   
   
 

@@ -1,4 +1,4 @@
-
+// Carousel
 const slider = tns({
     container: '.carousel__items',
     items: 1,
@@ -31,7 +31,7 @@ document.querySelector('.next').addEventListener('click', function () {
 
 
 
-
+// Tabs
 
 $(document).ready(function(){
     $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function() {
@@ -51,4 +51,60 @@ $(document).ready(function(){
     };
     toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
+
+    // ModalWindows
+
+    $('[data-modal=consultation]').on('click', function(){
+        $('.overlay, #consultation').fadeIn();
+    });
+
+    $('.modal__close').on('click', function(){
+        $('.overlay, #consultation, #order, #request').fadeOut();
+    });
+
+    $('.button_small').each(function(i){
+        $(this).on('click', function(){
+            $('#order .modal__descr').text($('.catalog-item__subtitile').eq(i).text());
+            $('.overlay, #order').fadeIn();
+        })
+    });
+
+    //validation
+
+    function validateForms(form){
+        $(form).validate({
+            rules:{
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Пожалуйста, введите ваше имя",
+                    minlength: jQuery.validator.format("Введите {0} символа!")
+                },
+                phone: "Пожалуйста, введите ваш номер телефона",
+                email: {
+                  required: "Пожалуйста, введите ваш email",
+                  email: "Неправильно введен email"
+                }
+            }
+        });
+    };
+
+    validateForms('#consult-form')
+    validateForms('#consultation form')
+    validateForms('#order form')
+    
+    //mask number   
+    
+    $('input[name=phone]').mask("+7 (999) 999-9999");
 });
+
+
