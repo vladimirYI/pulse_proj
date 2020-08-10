@@ -105,6 +105,39 @@ $(document).ready(function(){
     //mask number   
     
     $('input[name=phone]').mask("+7 (999) 999-9999");
+
+
+    $('form').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function(){
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #request').fadeIn('slow');
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    //scroll
+
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 1200){
+            $('.pageup').fadeIn();
+        } else{
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href^='#']").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+});
+    new WOW().init();
 });
 
 
